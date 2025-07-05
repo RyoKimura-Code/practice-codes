@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ライトon／off</title>
+	<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+	<style>
+	button{
+		background-color: lightgreen;
+		width: 200px;
+		height: 200px;
+		font-size: 5rem;
+		font-family:'Yuji Syuku', serif;
+	}
+	
+	button:hover{
+		background-color: pink;
+	}
+	</style>
+</head>
+<body>
+    <h1>電気</h1>
+		<p id="status">ライト　ON💡</p>
+		<button id="switch">電気</button>
+		<p id="message"></p>
+		
+		
+<script>
+
+'use strict';
+
+let islighton = true;
+const body = document.body;
+const status = document.getElementById('status');
+const switchbtn = document.getElementById('switch');
+const messageText =
+document.getElementById('message');
+
+switchbtn.addEventListener('click', function () {
+	if (islighton){
+		body.style.backgroundColor='black';
+		status.textContent = 'ライトOFF🌙';
+		messageText.textContent = 'ｸﾗｲ(*´•ω•)(•ω• `*)ﾈｰ';
+		body.style.color='white';
+		islighton = false;
+	
+} else {
+	body.style.backgroundColor='white';
+	status.textContent = 'ライトON💡';
+	body.style.color='black';
+	messageText.textContent = '＼(^o^)／あかるーい＼(^o^)／';
+	
+	islighton = true;
+}
+});
+</script>
+
+</body>
+</html>
