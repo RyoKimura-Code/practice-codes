@@ -1,112 +1,44 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>旅先ジェネレーター</title>
-	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <title>旅先ジェネレーター</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
+      rel="stylesheet"
+    />
 
-	<style>
-	body {
-  font-family: 'Mochiy Pop One', sans-serif;
-  text-align: center;
-  padding: 2em;
-  background: #fffaf0;
-}
-		button {
-  background-color: #f9c74f;
-  color: #333;
-  border: none;
-  padding: 1em 2em;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  transition: all 0.3s;
-}
-
-button:hover {
-  background-color: #f9844a;
-  color: white;
-}
-	h1{
-		font-family: 'Mochiy Pop One', sans-serif;
-		
-	}
-	</style>
-</head>
-<body>
-	<div id="firstScreen">
-    <h1>どっちにする？</h1>
-		<button id="japanbtn">国内</button>
-		<button id="worldbtn">海外</button>
-	</div>
-	<div id="secondScreen" class="hidden">
-		<h2>どこに行く？</h2>
-		<button id="areabtn">行き先を決める！</button>
-		<p id="areamessage"></p>
-		<h2>海と山なら・・・</h2>
-		<button id="locbtn">海か山か決める！</button>
-		<p id="locmessage"></p>
-	</div>
-		
-		
-		
-<script>
-
-'use strict';
-const japanarea =['北海道・東北','関東地方','中部地方','近畿地方','中国・四国','九州・沖縄'];
-const worldarea = ['アジア','ヨーロッパ','アフリカ','アメリカ','オセアニア'];
-const loc =['海','山'];
-
-//ボタンの定義
-const jpnbtn=document.getElementById('japanbtn');
-const wldbtn=document.getElementById('worldbtn');
-const destinationbtn=document.getElementById('areabtn');
-const locbtn=document.getElementById('locbtn');
-
-//状態管理
-let mode='';
-
-//国内ボタン押されたときにjapanモードにする
-jpnbtn.addEventListener('click', function (event) {
-	mode = 'japan';
-});	
-
-//海外ボタン押されたときにworldモードにする
-wldbtn.addEventListener('click',function (event) {
-	mode = 'world';
-});
-
-	destinationbtn.addEventListener('click',function (event) {
-		
-		//国内モードの時の処理
-		if (mode==='japan'){
-			const selectedjapan =japanarea[Math.floor(Math.random()*japanarea.length)];
-		document.getElementById('areamessage').textContent=`${selectedjapan}`;
-			
-		
-		//海外モードの時の処理
-		}else if (mode==='world') {
-			const selectedworld=worldarea[Math.floor(Math.random()*worldarea.length)];
-	document.getElementById('areamessage').textContent=`${selectedworld}`;
-			
-		}
-		
-	
-});
-
-locbtn.addEventListener('click',function (event) {
-	
-	const selectedloc=loc[Math.floor(Math.random()*loc.length)];
-	document.getElementById('locmessage').textContent=`${selectedloc}`;
-	
-});
-
-
-
-
-</script>
-
-</body>
+    <link rel="stylesheet" href="challenge11-旅先ジェネレーター.css" />
+  </head>
+  <body>
+    <div id="firstScreen">
+      <h1>どっちにする？</h1>
+      <button id="japanbtn">国内</button>
+      <button id="worldbtn">海外</button>
+    </div>
+    <div id="secondScreen">
+      <h2>どこに行く？</h2>
+      <button id="areabtn">行き先を決める！</button>
+      <p id="areamessage"></p>
+      <h2>海と山なら・・・</h2>
+      <button id="locbtn">海か山か決める！</button>
+      <p id="locmessage"></p>
+    </div>
+    <div id="modal" class="hidden">
+      <div id="modalContent">
+        <p id="resultContent">旅の行き先は・・・</p>
+        <p id="resultContent2"></p>
+        <p><button id="retryBtn">診断をやり直す</button></p>
+      </div>
+    </div>
+	<script src="challenge11-旅先ジェネレーター.js"></script>
+  </body>
 </html>
