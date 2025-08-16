@@ -12,7 +12,7 @@ citySelect.addEventListener("change", () => {
   if(!city)return;
 
   //キーの定義
-  const apiKey = "ebf04165a5ecb13c3c3dd4f2d5beac29";
+  const apiKey = "your key";
 
   //URLの定義
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ja`;
